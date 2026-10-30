@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { siteConfig } from './src/config/site.ts';
 
-const noindexPaths = ['/cookies/', '/privacy/', '/terms/'];
+const noindexPaths = ['/privacy/', '/terms/'];
 
 export default defineConfig({
   site: siteConfig.siteUrl,

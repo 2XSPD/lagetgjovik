@@ -1,5 +1,4 @@
 ---
-import ThemeToggle from '@/components/chrome/ThemeToggle.astro';
 import Icon from '@/components/ui/Icon.astro';
 import Logomark from '@/components/ui/Logomark.astro';
 import { navigation, siteConfig } from '@/config/site';
@@ -8,16 +7,20 @@ const path = Astro.url.pathname;
 const current = (href: string) => (path === href ? 'page' : path.startsWith(href) ? 'true' : undefined);
 ---
 
-<header class="site-header sticky top-0 z-40 h-(--header-h) border-b border-transparent bg-canvas">
+<header class="site-header sticky top-0 z-40 h-(--header-h) border-b border-transparent bg-accent">
   <div class="shell flex h-full items-center gap-4">
     <a href="/" class="flex items-center gap-2.5 rounded-lg text-[1.15rem] font-semibold tracking-[-0.03em]">
       <Logomark />
-      <span>{siteConfig.name}</span>
       <span class="sr-only">, home</span>
     </a>
 
     <nav aria-label="Main" class="ml-auto hidden md:block">
       <ul class="flex items-center gap-1">
+        <li>
+          <a href="/" class="nav-link" aria-current={path === '/' ? 'page' : undefined}>
+            Hjem
+          </a>
+        </li>
         {navigation.map((link) => (
           <li>
             <a href={link.href} class="nav-link" aria-current={current(link.href)}>
@@ -29,13 +32,12 @@ const current = (href: string) => (path === href ? 'page' : path.startsWith(href
     </nav>
 
     <div class="ml-auto flex items-center gap-1.5 md:ml-2">
-      <ThemeToggle />
       <a class="btn btn-primary btn-sm ml-1 hidden sm:inline-flex" href={siteConfig.action.href}>
         {siteConfig.action.label}
       </a>
       <button
         type="button"
-        class="grid size-10 place-items-center rounded-full hover:bg-sunken md:hidden"
+        class="grid size-10 place-items-center rounded-full hover:bg-ink text-surface md:hidden"
         commandfor="mobile-nav"
         command="show-modal"
         aria-haspopup="dialog"
@@ -47,15 +49,14 @@ const current = (href: string) => (path === href ? 'page' : path.startsWith(href
   </div>
 
   <dialog id="mobile-nav" aria-label="Menu" class="mobile-nav md:hidden">
-    <div class="shell flex h-(--header-h) items-center justify-between">
-      <a href="/" class="flex items-center gap-2.5 text-[1.15rem] font-semibold tracking-[-0.03em]">
+    <div class="shell flex h-(--header-h) items-center justify-between margin-bottom-[2rem]">
+      <a href="/" class="flex items-center gap-2.5 text-[1.15rem] font-semibold tracking-[-0.03em] ">
         <Logomark />
-        <span>{siteConfig.name}</span>
         <span class="sr-only">, home</span>
       </a>
       <button
         type="button"
-        class="grid size-10 place-items-center rounded-full hover:bg-sunken"
+        class="grid size-10 place-items-center rounded-full hover:bg-ink"
         commandfor="mobile-nav"
         command="close"
         aria-label="Close menu"
@@ -67,7 +68,7 @@ const current = (href: string) => (path === href ? 'page' : path.startsWith(href
       <ul class="grid">
         <li>
           <a href="/" class="mobile-link" aria-current={path === '/' ? 'page' : undefined}>
-            Home
+            Hjem
           </a>
         </li>
         {navigation.map((link) => (
@@ -109,13 +110,13 @@ const current = (href: string) => (path === href ? 'page' : path.startsWith(href
     .site-header {
       animation: header-line linear both;
       animation-timeline: scroll(root);
-      animation-range: 0 4rem;
+      animation-range: 0 32rem;
     }
   }
 
   @keyframes header-line {
     to {
-      border-bottom-color: var(--line);
+      background: color-mix(in oklab, var(--accent) 95%, transparent);
     }
   }
 
@@ -124,8 +125,8 @@ const current = (href: string) => (path === href ? 'page' : path.startsWith(href
     align-items: center;
     min-height: 2.5rem;
     padding: 0.4rem 0.9rem;
-    border-radius: 999px;
-    color: var(--body);
+    border-radius: 0.5rem;
+    color: var(--surface);
     font-size: 0.95rem;
     font-weight: 500;
     transition:
@@ -135,8 +136,8 @@ const current = (href: string) => (path === href ? 'page' : path.startsWith(href
 
   .nav-link:hover,
   .nav-link[aria-current] {
-    color: var(--ink);
-    background: var(--sunken);
+    color: var(--surface);
+    background: color-mix(in oklab, var(--ink) 25%, transparent);
   }
 
   .mobile-nav {
@@ -149,8 +150,8 @@ const current = (href: string) => (path === href ? 'page' : path.startsWith(href
     margin: 0;
     padding: 0 0 2rem;
     border: 0;
-    background: var(--canvas);
-    color: var(--ink);
+    background: var(--accent);
+    color: var(--surface);
   }
 
   .mobile-link {
@@ -181,13 +182,11 @@ const current = (href: string) => (path === href ? 'page' : path.startsWith(href
 
     .mobile-nav:not([open]) {
       opacity: 0;
-      translate: 0 -0.75rem;
     }
 
     @starting-style {
       .mobile-nav[open] {
         opacity: 0;
-        translate: 0 -0.75rem;
       }
     }
   }
