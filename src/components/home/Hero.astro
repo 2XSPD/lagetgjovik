@@ -1,33 +1,29 @@
 ---
 import { Image } from 'astro:assets';
 import portrait from '@/assets/images/maria.webp';
+import heroimage from '@/assets/images/hero-img.jpg';
 import Icon from '@/components/ui/Icon.astro';
 import { hero } from '@/config/home';
 import { siteConfig } from '@/config/site';
 ---
 
 <section class="shell pt-14 pb-20 sm:pt-20 sm:pb-28 lg:pt-24" aria-labelledby="hero-title">
-  {siteConfig.availability.enabled && (
-    <p class="rise inline-flex items-center gap-3 rounded-full border border-line bg-surface py-1.5 pr-4 pl-1.5 text-sm text-body shadow-[0_1px_2px_rgb(18_18_17/0.04)]">
-      <Image
-        src={portrait}
-        alt=""
-        width={56}
-        height={56}
-        loading="eager"
-        class="size-7 rounded-full object-cover object-top"
-      />
-      <span class="availability-dot" aria-hidden="true" />
-      {siteConfig.availability.label}
-    </p>
-  )}
+  <div class="flex flex-col gap-16 lg:gap-24 lg:flex-row-reverse lg:items-end">
+    <div class="rise" style="--rise-step: 3">
+    <Image
+      src={heroimage}
+      alt=""
+      layout="full-width"
+      loading="eager"
+      class="rounded-2xl object-cover object-top shadow-lg shadow-[0_1px_2px_rgb(18_18_17/0.04)] object-contain max-h-[300px] lg:max-h-[400px]"
+    />
+  </div>
+  <div class="flex flex-col gap-6 lg:gap-8">
+    <h1 id="hero-title" class="rise max-w-[10ch] text-display">
+      {hero.title}
+    </h1>
 
-  <h1 id="hero-title" class="rise mt-8 max-w-[17ch] text-display" style="--rise-step: 1">
-    {hero.greeting} {hero.title} <span class="serif">{hero.highlight}</span>
-  </h1>
-
-  <div class="mt-10 grid gap-12 lg:mt-14 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
-    <div class="rise" style="--rise-step: 2">
+    <div class="rise">
       <p class="max-w-xl text-lead text-body">{hero.text}</p>
       <div class="mt-8 flex flex-wrap gap-3">
         <a class="btn btn-primary" href={hero.primary.href}>
@@ -39,19 +35,10 @@ import { siteConfig } from '@/config/site';
         </a>
       </div>
     </div>
-
-    <dl
-      class="rise grid grid-cols-3 gap-6 border-t border-line pt-6 sm:gap-10 lg:border-t-0 lg:pt-0"
-      style="--rise-step: 3"
-    >
-      {hero.facts.map((fact) => (
-        <div class="flex flex-col-reverse gap-1">
-          <dt class="max-w-[13ch] text-sm leading-snug text-muted">{fact.label}</dt>
-          <dd class="text-section">{fact.value}</dd>
-        </div>
-      ))}
-    </dl>
   </div>
+
+</div>
+  
 </section>
 
 <style>

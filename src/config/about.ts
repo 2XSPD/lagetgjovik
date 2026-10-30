@@ -1,5 +1,5 @@
 export const about = {
-  eyebrow: 'About',
+  eyebrow: 'Om oss',
   title: 'I make complicated things feel',
   highlight: 'clear and easy to use.',
   text: "I'm Maria, a product designer focused on turning dense workflows, fuzzy requirements, and overloaded interfaces into experiences people can navigate with confidence.",

@@ -99,14 +99,16 @@ const year = new Date().getFullYear();
     </nav>
   </div>
 
-  <div class="footer-credit shell flex flex-wrap items-center justify-between gap-4 py-6 text-sm text-surface ">
-    <p>
-      &copy; {year} {siteConfig.name}.
-    </p>
-    <a href="#content" class="inline-flex items-center gap-1.5 hover:text-surface/80">
-      Back to top
-      <Icon name="arrow-up" class="size-3.5" />
-    </a>
+  <div class="footer-credit">
+    <div class="shell flex flex-wrap items-center justify-between gap-4 py-6 text-sm text-surface ">
+      <p>
+        &copy; {year} {siteConfig.name}.
+      </p>
+      <a href="#content" class="inline-flex items-center gap-1.5 hover:text-surface/80">
+        Tilbake til toppen
+        <Icon name="arrow-up" class="size-3.5" />
+      </a>
+    </div>
   </div>
 </footer>
 
@@ -125,11 +127,11 @@ const year = new Date().getFullYear();
     background: color-mix(in oklab, var(--ink) 25%, transparent);
   }
 
-  .closing-grid {
+  /* .closing-grid {
     position: absolute;
     inset: 0;
     background-image: radial-gradient(circle at 1px 1px, rgb(255 255 255 / 0.09) 1px, transparent 0);
     background-size: 24px 24px;
     mask-image: radial-gradient(ellipse 70% 90% at 100% 100%, #000 10%, transparent 70%);
-  }
+  } */
 </style>

@@ -50,7 +50,7 @@ const current = (href: string) => (path === href ? 'page' : path.startsWith(href
 
   <dialog id="mobile-nav" aria-label="Menu" class="mobile-nav md:hidden">
     <div class="shell flex h-(--header-h) items-center justify-between margin-bottom-[2rem]">
-      <a href="/" class="flex items-center gap-2.5 text-[1.15rem] font-semibold tracking-[-0.03em] ">
+      <a href="/" class="flex items-center gap-2.5 text-[1.15rem] font-semibold tracking-[-0.03em]">
         <Logomark />
         <span class="sr-only">, home</span>
       </a>
@@ -103,14 +103,30 @@ const current = (href: string) => (path === href ? 'page' : path.startsWith(href
     if ((event.target as Element).closest('a')) menu.close();
   });
   matchMedia('(min-width: 48rem)').addEventListener('change', (event) => event.matches && menu?.close());
+
+  const header = document.querySelector<HTMLElement>('.site-header');
+
+  if (header && !CSS.supports('animation-timeline: scroll()')) {
+    const updateHeader = () => {
+      const scrollRange = 32 * Number.parseFloat(getComputedStyle(document.documentElement).fontSize);
+      header.classList.toggle('is-scrolled', window.scrollY >= scrollRange);
+    };
+
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
+  }
 </script>
 
 <style>
+  .site-header.is-scrolled {
+    background: var(--accent);
+  }
+
   @supports (animation-timeline: scroll()) {
     .site-header {
       animation: header-line linear both;
       animation-timeline: scroll(root);
-      animation-range: 0 32rem;
+      animation-range: 0 16rem;
     }
   }
 

@@ -1,15 +1,15 @@
 export const hero = {
-  greeting: "Hi, I'm Maria.",
-  title: 'I design digital products that',
-  highlight: 'actually make sense.',
-  text: 'Ten-plus years helping teams turn messy problems into clear, useful experiences. Corporations, startups, scrappy independents: if there is a user confused somewhere, I want to fix that.',
-  primary: { label: 'See selected work', href: '/#work' },
-  secondary: { label: 'About me', href: '/about/' },
-  facts: [
-    { value: '10+', label: 'years in product design' },
-    { value: '40+', label: 'products shipped' },
-    { value: '12', label: 'design systems built' },
-  ],
+  // greeting: "Hi, I'm Maria.",
+  title: 'Studentlaget Gjøvik',
+  // highlight: 'actually make sense.',
+  text: 'Et kristent fellesskap for studenter i Gjøvik, hvor du kan få nye venner, og lære å kjenne Jesus bedre sammen med andre.',
+  primary: { label: 'See hva som skjer', href: '/#work' },
+  secondary: { label: 'Om oss', href: '/om-oss/' },
+  // facts: [
+  //   { value: '10+', label: 'years in product design' },
+  //   { value: '40+', label: 'products shipped' },
+  //   { value: '12', label: 'design systems built' },
+  // ],
 };
 
 export const work = {
