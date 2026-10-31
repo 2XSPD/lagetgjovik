@@ -122,13 +122,13 @@ const current = (href: string) => (path === href ? 'page' : path.startsWith(href
     background: var(--accent);
   }
 
-  @supports (animation-timeline: scroll()) {
+  /* @supports (animation-timeline: scroll()) { */
     .site-header {
       animation: header-line linear both;
       animation-timeline: scroll(root);
       animation-range: 0 16rem;
     }
-  }
+  /* } */
 
   @keyframes header-line {
     to {
