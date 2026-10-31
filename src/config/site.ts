@@ -36,7 +36,7 @@ export const navigation: NavLink[] = [
   { label: 'Resume', href: '/resume/' },
 ];
 
-export const legalLinks: NavLink[] = [
-  { label: 'Privacy', href: '/privacy/' },
-  { label: 'Terms', href: '/terms/' },
+export const publicLinks: NavLink[] = [
+  { label: 'Offentlige dokumenter', href: 'https://drive.google.com/drive/folders/1qZJJ5cde0ReRgMT3PqR0f5sIt10VIeiv?usp=sharing' },
+  // { label: 'Terms', href: '/terms/' },
 ];

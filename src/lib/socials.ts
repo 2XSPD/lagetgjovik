@@ -1,6 +1,4 @@
 const byLabel: Record<string, string> = {
-  Behance: 'social-behance',
-  Dribbble: 'social-dribbble',
   Facebook: 'social-facebook',
   Discord: 'social-discord',
   GitHub: 'social-github',

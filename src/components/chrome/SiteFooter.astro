@@ -1,7 +1,7 @@
 ---
 import Icon from '@/components/ui/Icon.astro';
 import Logomark from '@/components/ui/Logomark.astro';
-import { legalLinks, navigation, siteConfig } from '@/config/site';
+import { publicLinks, siteConfig } from '@/config/site';
 import { socialIcon } from '@/lib/socials';
 
 interface Props {
@@ -58,10 +58,25 @@ const year = new Date().getFullYear();
       </h2>
       <ul class="mt-4 grid gap-2.5">
         <li>
-          <a class="footer-link" href="/">
+          <a class="footer-link" href={`mailto:${siteConfig.org.email}`}>
             {siteConfig.org.email}
           </a>
         </li>
+      </ul>
+    </nav>
+
+    <nav aria-labelledby="footer-legal">
+      <h2 id="footer-legal" class="text-sm text-surface">
+        Dokumenter
+      </h2>
+      <ul class="mt-4 grid gap-2.5">
+        {publicLinks.map((link) => (
+          <li>
+            <a class="footer-link" href={link.href}>
+              {link.label}
+            </a>
+          </li>
+        ))}
       </ul>
     </nav>
 
@@ -72,24 +87,9 @@ const year = new Date().getFullYear();
       <ul class="mt-4 grid gap-2.5">
         {siteConfig.socials.map((social) => (
           <li>
-            <a class="footer-link inline-flex items-center gap-2.5" href={social.href} rel="me noopener">
+            <a class="footer-link inline-flex items-center gap-2.5" href={social.href} rel="me noopener" target="_blank">
               <Icon name={socialIcon(social.label)} class="size-3.5 text-surface" />
               {social.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-
-    <nav aria-labelledby="footer-legal">
-      <h2 id="footer-legal" class="text-sm text-surface">
-        Legal
-      </h2>
-      <ul class="mt-4 grid gap-2.5">
-        {legalLinks.map((link) => (
-          <li>
-            <a class="footer-link" href={link.href}>
-              {link.label}
             </a>
           </li>
         ))}
@@ -102,7 +102,7 @@ const year = new Date().getFullYear();
       <p>
         &copy; {year} {siteConfig.name}.
       </p>
-      <a href="#content" class="inline-flex items-center gap-1.5 hover:text-surface/80">
+      <a href="#content" class="footer-link inline-flex items-center gap-1.5 hover:text-surface/80">
         Tilbake til toppen
         <Icon name="arrow-up" class="size-3.5" />
       </a>
