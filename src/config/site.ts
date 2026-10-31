@@ -14,21 +14,19 @@ export const siteConfig = {
   dateLocale: 'nb_NO',
   socialImage: '/og-image.png',
 
-  author: {
-    name: 'Trond Smith-Øvland',
-    role: 'Design engineer',
+  org: {
     location: 'Gjøvik, Norway',
-    email: 'hello@example.com',
+    email: 'kr.lagetntnugjovik@gmail.com',
+    orgnr: '935750431',
   },
 
   /** The button at the end of the header and in the mobile menu. */
   action: { label: 'Bli medlem', href: 'https://laget.nkss.no/' },
 
   socials: [
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/' },
-    { label: 'Dribbble', href: 'https://dribbble.com/' },
-    { label: 'Behance', href: 'https://www.behance.net/' },
-    { label: 'Instagram', href: 'https://www.instagram.com/' },
+    { label: 'Instagram', href: 'https://www.instagram.com/studentlaget_gjovik' },
+    { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=100067791260288' },
+    { label: 'Discord', href: 'https://discord.gg/DDuuPDVQyD' },
   ] satisfies NavLink[],
 };
 

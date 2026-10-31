@@ -10,23 +10,18 @@ import { profileSchema } from '@/lib/schema';
 
 <BaseLayout
   title="Resume"
-  description={`Resume of ${siteConfig.author.name}: experience, capabilities, education, and tools across ten years of product design.`}
+  description={`Resume of ${siteConfig.name}: experience, capabilities, education, and tools across ten years of product design.`}
   type="profile"
   structuredData={profileSchema('/resume/')}
 >
   <PageHero eyebrow={resume.eyebrow} title={resume.title} highlight={resume.highlight} text={resume.text}>
     <div class="rise mt-8 flex flex-wrap gap-3" style="--rise-step: 3">
-      {siteConfig.resumePdf && (
-        <a class="btn btn-primary" href={siteConfig.resumePdf} download>
-          <Icon name="download" class="size-4" />
-          Download PDF
-        </a>
-      )}
+
       <a
-        class:list={['btn', siteConfig.resumePdf ? 'btn-ghost' : 'btn-primary']}
-        href={`mailto:${siteConfig.author.email}`}
+        class:list={['btn', siteConfig.name ? 'btn-ghost' : 'btn-primary']}
+        href={`mailto:${siteConfig.org.email}`}
       >
-        {siteConfig.author.email}
+        {siteConfig.org.email}
         <Icon name="arrow-up-right" class="icon-nudge-diagonal size-4" />
       </a>
     </div>

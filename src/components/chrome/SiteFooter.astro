@@ -1,7 +1,6 @@
 ---
 import Icon from '@/components/ui/Icon.astro';
 import Logomark from '@/components/ui/Logomark.astro';
-import { closing } from '@/config/home';
 import { legalLinks, navigation, siteConfig } from '@/config/site';
 import { socialIcon } from '@/lib/socials';
 
@@ -10,7 +9,7 @@ interface Props {
 }
 
 const { closing: showClosing = true } = Astro.props;
-const { email } = siteConfig.author;
+const { email } = siteConfig.org;
 const year = new Date().getFullYear();
 ---
 
@@ -45,25 +44,24 @@ const year = new Date().getFullYear();
         <Logomark class="h-11" />
         <span class="sr-only">, hjem</span>
       </a>
+      <p class="mt-5 max-w-xs text-surface">
+        {siteConfig.name}
+      </p>
+      <p class="mt-0 max-w-xs text-surface">
+        Org.nr: <a class="footer-link" href="https://virksomhet.brreg.no/nb/oppslag/enheter/{siteConfig.org.orgnr}" target="_blank" rel="noopener noreferrer">{siteConfig.org.orgnr}</a>
+      </p>
     </div>
 
     <nav aria-labelledby="footer-pages">
       <h2 id="footer-pages" class="text-sm text-surface">
-        Pages
+        Kontakt oss
       </h2>
       <ul class="mt-4 grid gap-2.5">
         <li>
           <a class="footer-link" href="/">
-            Hjem
+            {siteConfig.org.email}
           </a>
         </li>
-        {navigation.map((link) => (
-          <li>
-            <a class="footer-link" href={link.href}>
-              {link.label}
-            </a>
-          </li>
-        ))}
       </ul>
     </nav>
 

@@ -6,9 +6,8 @@ const absolute = (path: string) => new URL(path, siteConfig.siteUrl).toString();
 const person = {
   '@type': 'Person',
   '@id': absolute('/#person'),
-  name: siteConfig.author.name,
-  jobTitle: siteConfig.author.role,
-  email: `mailto:${siteConfig.author.email}`,
+  name: siteConfig.name,
+  email: `mailto:${siteConfig.org.email}`,
   url: siteConfig.siteUrl,
   sameAs: siteConfig.socials.map((social) => social.href),
 };
@@ -58,7 +57,7 @@ export const caseStudySchema = (project: Project, image: string) => ({
       image: absolute(image),
       dateCreated: String(project.data.year),
       url: absolute(projectHref(project)),
-      author: { '@id': absolute('/#person'), '@type': 'Person', name: siteConfig.author.name },
+      author: { '@id': absolute('/#person'), '@type': 'Person', name: siteConfig.name },
       inLanguage: siteConfig.language,
     },
     breadcrumbs([

@@ -10,7 +10,7 @@ import { profileSchema } from '@/lib/schema';
 
 <BaseLayout
   title="Om oss"
-  description={`Om ${siteConfig.author.name}, a ${siteConfig.author.role.toLowerCase()} in ${siteConfig.author.location} working on dashboards, workflow tools, and AI-assisted products.`}
+  description={`Om ${siteConfig.title}.`}
   type="profile"
   structuredData={profileSchema('/om-oss/')}
 >
@@ -28,8 +28,8 @@ import { profileSchema } from '@/lib/schema';
           View resume
           <Icon name="arrow-right" class="icon-nudge size-4" />
         </a>
-        <a class="btn btn-ghost" href={`mailto:${siteConfig.author.email}`}>
-          Email me
+        <a class="btn btn-ghost" href={`mailto:${siteConfig.org.email}`}>
+          Email oss
         </a>
       </div>
     </div>
@@ -45,7 +45,7 @@ import { profileSchema } from '@/lib/schema';
       />
       <p class="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full bg-surface/90 px-3.5 py-1.5 text-sm font-medium backdrop-blur">
         <Icon name="map-pin" class="size-3.5" />
-        {siteConfig.author.location}
+        {siteConfig.org.location}
       </p>
     </div>
   </header>
