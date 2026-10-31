@@ -7,7 +7,7 @@ const path = Astro.url.pathname;
 const current = (href: string) => (path === href ? 'page' : path.startsWith(href) ? 'true' : undefined);
 ---
 
-<header class="site-header sticky top-0 z-40 h-(--header-h) border-b border-transparent bg-accent">
+<header class="site-header sticky top-0 z-50 h-(--header-h) border-b border-transparent bg-accent">
   <div class="shell flex h-full items-center gap-4">
     <a href="/" class="flex items-center gap-2.5 rounded-lg text-[1.15rem] font-semibold tracking-[-0.03em]">
       <Logomark />
@@ -108,7 +108,7 @@ const current = (href: string) => (path === href ? 'page' : path.startsWith(href
 
   if (header && !CSS.supports('animation-timeline: scroll()')) {
     const updateHeader = () => {
-      const scrollRange = 32 * Number.parseFloat(getComputedStyle(document.documentElement).fontSize);
+      const scrollRange = 16 * Number.parseFloat(getComputedStyle(document.documentElement).fontSize);
       header.classList.toggle('is-scrolled', window.scrollY >= scrollRange);
     };
 
@@ -122,17 +122,17 @@ const current = (href: string) => (path === href ? 'page' : path.startsWith(href
     background: var(--accent);
   }
 
-  /* @supports (animation-timeline: scroll()) { */
+  @supports (animation-timeline: scroll()) {
     .site-header {
       animation: header-line linear both;
       animation-timeline: scroll(root);
       animation-range: 0 16rem;
     }
-  /* } */
+  }
 
   @keyframes header-line {
     to {
-      background: color-mix(in oklab, var(--accent) 95%, transparent);
+      height: calc(var(--header-h) - 1rem);
     }
   }
 
