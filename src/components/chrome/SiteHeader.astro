@@ -81,7 +81,7 @@ const current = (href: string) => (path === href ? 'page' : path.startsWith(href
       </ul>
     </nav>
     <div class="shell mt-8">
-      <a class="btn btn-primary w-full" href={siteConfig.action.href}>
+      <a class="btn btn-primary btn-mobile w-full" href={siteConfig.action.href}>
         {siteConfig.action.label}
       </a>
     </div>
@@ -175,8 +175,9 @@ const current = (href: string) => (path === href ? 'page' : path.startsWith(href
     align-items: center;
     min-height: 3.75rem;
     border-bottom: 1px solid var(--line);
-    font-size: 1.75rem;
-    font-weight: 500;
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 400;
     letter-spacing: -0.03em;
   }
 
@@ -185,6 +186,12 @@ const current = (href: string) => (path === href ? 'page' : path.startsWith(href
     text-decoration-color: var(--accent);
     text-decoration-thickness: 3px;
     text-underline-offset: 0.25em;
+  }
+
+  .btn-mobile {
+
+    font-size: 1.8rem;
+
   }
 
   @media (prefers-reduced-motion: no-preference) {
