@@ -33,7 +33,7 @@ export const siteConfig = {
 export const navigation: NavLink[] = [
   
   { label: 'Arrangementer', href: '/arrangementer/' },
-  // { label: 'English', href: '/english/' },
+  { label: 'English', href: '/english/' },
   { label: 'Om oss', href: '/om-oss/' },
 
 ];

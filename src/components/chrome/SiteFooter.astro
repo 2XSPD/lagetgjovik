@@ -24,38 +24,8 @@ const year = new Date().getFullYear();
         {siteConfig.name}
       </p>
       <p class="mt-0 max-w-xs text-surface">
-        Org.nr: <a class="footer-link" href="https://virksomhet.brreg.no/nb/oppslag/enheter/{siteConfig.org.orgnr}" target="_blank" rel="noopener noreferrer">{siteConfig.org.orgnr}</a>
+        Org.nr: <a class="footer-link" href={`https://virksomhet.brreg.no/nb/oppslag/enheter/${siteConfig.org.orgnr}`} target="_blank" rel="noopener noreferrer">{siteConfig.org.orgnr}</a>
       </p>
-    </div>
-
-    <div class="grid grid gap-2.5">
-    <nav aria-labelledby="footer-pages">
-      <h2 id="footer-pages" class="text-sm text-surface">
-        Kontakt oss
-      </h2>
-      <ul class="mt-2 grid gap-2.5">
-        <li>
-          <a class="footer-link" href={`mailto:${siteConfig.org.email}`}>
-            {siteConfig.org.email}
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-    <nav aria-labelledby="footer-legal">
-      <h2 id="footer-legal" class="text-sm text-surface">
-        Dokumenter
-      </h2>
-      <ul class="mt-2 grid gap-2.5">
-        {publicLinks.map((link) => (
-          <li>
-            <a class="footer-link" href={link.href} target="_blank" rel="noopener noreferrer">
-              {link.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
     </div>
 
     <nav aria-labelledby="footer-elsewhere">
@@ -73,6 +43,34 @@ const year = new Date().getFullYear();
         ))}
       </ul>
     </nav>
+
+    <nav aria-labelledby="footer-pages">
+      <h2 id="footer-pages" class="text-sm text-surface">
+        Kontakt oss
+      </h2>
+      <ul class="mt-2 grid gap-2.5">
+        <li>
+          <a class="footer-link" href={`mailto:${siteConfig.org.email}`}>
+            {siteConfig.org.email}
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+      <nav aria-labelledby="footer-legal">
+        <h2 id="footer-legal" class="text-sm text-surface">
+          Dokumenter
+        </h2>
+        <ul class="mt-2 grid gap-2.5">
+          {publicLinks.map((link) => (
+            <li>
+              <a class="footer-link" href={link.href} target="_blank" rel="noopener noreferrer">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
   </div>
 
   <div class="footer-credit">
