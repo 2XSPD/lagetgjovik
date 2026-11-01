@@ -31,9 +31,11 @@ export const siteConfig = {
 };
 
 export const navigation: NavLink[] = [
-  { label: 'Work', href: '/work/' },
+  
+  { label: 'Arrangementer', href: '/arrangementer/' },
+  // { label: 'English', href: '/english/' },
   { label: 'Om oss', href: '/om-oss/' },
-  { label: 'Resume', href: '/resume/' },
+
 ];
 
 export const publicLinks: NavLink[] = [
