@@ -37,13 +37,10 @@ interface Props {
 const { name, class: className = 'size-4', stroke } = Astro.props;
 let svg = brands[name] ?? outline[name] ?? outline['arrow-up-right'];
 if (stroke && !brands[name]) svg = svg.replace('stroke-width="1.75"', `stroke-width="${stroke}"`);
+svg = svg.replace(/<svg(?=\s|>)/, '<svg aria-hidden="true"');
 ---
 
-<span
-  class:list={['icon shrink-0 place-items-center [&>svg]:size-full', className]}
-  aria-hidden="true"
-  set:html={svg}
-/>
+<span class:list={['icon shrink-0 place-items-center [&>svg]:size-full', className]} set:html={svg} />
 
 <style is:global>
   @layer base {
