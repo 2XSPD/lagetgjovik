@@ -12,12 +12,17 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 >
   <section class="shell grid min-h-[70vh] place-items-center py-20 text-center">
     <div>
-      <p class="rise font-heading font-[700] text-[clamp(6rem,4rem+10vw,12rem)] leading-none text-muted">4🫪4</p>
+      <p class="rise font-heading font-[700] text-[clamp(6rem,4rem+10vw,12rem)] leading-none text-muted" aria-label="404">
+        4🫪4
+      </p>
       <h1 class="rise mt-4 text-section" style="--rise-step: 1">
-        Her var det ingenting...
+        Oi, her var det ingenting...
       </h1>
       <p class="rise mx-auto mt-5 max-w-md text-lead text-muted" style="--rise-step: 2">
-        Linken kan være utdatert, eller så har siden blitt flyttet. Prøv en av disse istedenfor.
+        Linken kan være utdatert, eller blitt flyttet. Om ikke får vi be den kommer tilbake🙏.
+      </p>
+      <p class="rise mx-auto mt-5 max-w-md text-lead text-muted" style="--rise-step: 2">
+        Prøv en av disse istedenfor.
       </p>
       <div class="rise mt-10 flex flex-wrap justify-center gap-3" style="--rise-step: 3">
         <a class="btn btn-primary" href="/">

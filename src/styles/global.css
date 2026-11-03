@@ -151,8 +151,8 @@
   --body: #3b3b38;
   --muted: #6a6964;
   --accent: #B01824;
-  --accent-strong: #ec2cdc;
-  --on-accent: #121211;
+  --accent-strong: #1f1f1f;
+  --on-accent: #ffffff;
   --inverse: #121211;
   --on-inverse: #fafaf7;
   --night: #121211;
@@ -202,10 +202,10 @@
     text-wrap: pretty;
   }
 
-  ::selection {
+  /* ::selection {
     background: var(--accent);
     color: var(--on-accent);
-  }
+  } */
 
   :focus-visible {
     outline: 2px solid var(--ink);
@@ -309,7 +309,7 @@
   }
 
   .btn-accent:hover {
-    background: var(--accent-strong);
+    background: color-mix(in oklab, var(--inverse) 84%, var(--canvas));
   }
 
   .btn-ghost {

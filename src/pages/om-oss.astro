@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import portrait from '@/assets/images/maria.webp';
 import Icon from '@/components/ui/Icon.astro';
-import { about } from '@/config/about';
+import { omOss } from '@/config/om-oss';
 import { siteConfig } from '@/config/site';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { profileSchema } from '@/lib/schema';
@@ -17,10 +17,10 @@ import { profileSchema } from '@/lib/schema';
   <header class="shell grid gap-12 pt-16 sm:pt-24 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end lg:gap-16">
     <div>
       <h1 class="rise mt-6 max-w-[18ch] text-headline" style="--rise-step: 1">
-        {about.title} <span class="serif">{about.highlight}</span>
+        {omOss.title}
       </h1>
       <p class="rise mt-6 max-w-2xl text-lead text-body" style="--rise-step: 2">
-        {about.text}
+        {omOss.text}
       </p>
       <div class="rise mt-8 flex flex-wrap gap-3" style="--rise-step: 3">
         <a class="btn btn-primary" href="/resume/">
@@ -35,7 +35,7 @@ import { profileSchema } from '@/lib/schema';
     <div class="rise relative" style="--rise-step: 2">
       <Image
         src={portrait}
-        alt={about.portraitAlt}
+        alt=""
         widths={[320, 480, 640]}
         sizes="(min-width: 64rem) 22rem, 90vw"
         loading="eager"
@@ -50,7 +50,7 @@ import { profileSchema } from '@/lib/schema';
   </header>
 
   <div class="shell mt-20 sm:mt-28">
-    {about.sections.map((section) => (
+    {omOss.sections.map((section) => (
       <section class="reveal grid gap-6 border-t border-line py-12 lg:grid-cols-[16rem_minmax(0,1fr)] lg:gap-16">
         <h2 class="eyebrow self-start">{section.title}</h2>
         <div class="grid max-w-3xl gap-5 text-lead text-body">
@@ -64,10 +64,10 @@ import { profileSchema } from '@/lib/schema';
 
   <section class="shell mt-16 sm:mt-24" aria-labelledby="principles-title">
     <h2 id="principles-title" class="reveal text-section">
-      {about.principles.title}
+      {omOss.principles.title}
     </h2>
     <ol class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-      {about.principles.items.map((item, index) => (
+      {omOss.principles.items.map((item, index) => (
         <li class="reveal rounded-card border border-line bg-surface p-7">
           <span class="font-serif text-3xl text-muted italic" aria-hidden="true">
             {String(index + 1).padStart(2, '0')}

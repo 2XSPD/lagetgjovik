@@ -1,8 +1,8 @@
 export const about = {
-  title: 'I make complicated things feel',
+  title: 'About Studentlaget Gjøvik',
+  subtitle: 'IFES Norway',
   highlight: 'clear and easy to use.',
-  text: "I'm Maria, a product designer focused on turning dense workflows, fuzzy requirements, and overloaded interfaces into experiences people can navigate with confidence.",
-  portraitAlt: 'Portrait of Maria smiling at her desk',
+  text: "Studentlaget Gjøvik is a cristian student organization thats part of a bigger network, Laget, who works to get cristian students to gather in schools and universities throughout Norway. It's also a part of IFES, International Fellowship of Evangelical Students, which is a global network of student movements.",
   sections: [
     {
       title: 'Background',

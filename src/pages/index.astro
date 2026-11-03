@@ -34,4 +34,138 @@ const selected = projects.toSorted((a, b) => Number(b.data.featured) - Number(a.
 
   <Services />
   <Testimonials />
+
+
+<div class="shell mt-28 sm:mt-36 reveal flex flex-wrap items-end justify-between gap-x-10 gap-y-6">
+    <div id="map" class="p-4"></div>
+
+    <div class="sidebar">
+        <details id="church-0">
+            <summary>Gjøvik kirke</summary>
+            <p>Church information goes here.</p>
+        </details>
+
+        <details id="church-1">
+            <summary>Hunn kirke</summary>
+            <p>Church information goes here.</p>
+        </details>
+
+        <details id="church-2">
+            <summary>Vindingstad kirke</summary>
+            <p>Church information goes here.</p>
+        </details>
+    </div>
+</div>
+
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script type="module" is:inline>
+const churches = [
+{
+    name: "Gjøvik kirke",
+    lat: 60.7953,
+    lng: 10.6918,
+    description: "Main church in Gjøvik."
+},
+{
+    name: "Hunn kirke",
+    lat: 60.7763,
+    lng: 10.6417,
+    description: "Church in Hunn parish."
+},
+{
+    name: "Vindingstad kirke",
+    lat: 60.7735,
+    lng: 10.6704,
+    description: "Local church at Vindingstad."
+}
+];
+
+const map = L.map('map').setView([60.795, 10.69], 12);
+
+L.tileLayer(
+    'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {
+        attribution: '&copy; OpenStreetMap'
+    }
+).addTo(map);
+
+churches.forEach((church, index) => {
+
+    const marker = L.marker([
+        church.lat,
+        church.lng
+    ]).addTo(map);
+
+    marker.bindPopup(`
+        <strong>${church.name}</strong>
+    `);
+
+    // Map -> list
+    marker.on('click', () => {
+
+        document
+            .querySelectorAll('details')
+            .forEach(item => item.removeAttribute('open'));
+
+        document
+            .getElementById(`church-${index}`)
+            .setAttribute('open', '');
+    });
+
+    // List -> map
+    document
+        .getElementById(`church-${index}`)
+        .addEventListener('click', () => {
+
+            map.flyTo(
+                [church.lat, church.lng],
+                15
+            );
+
+            marker.openPopup();
+        });
+});
+</script>
 </BaseLayout>
+
+<style>
+  #map {
+    height: 200px;
+    width: 400;
+    max-width: 80%;
+}
+    .container {
+    display: flex;
+    height: 600px;
+    gap: 1rem;
+}
+
+#map {
+    flex: 2;
+    border-radius: 12px;
+}
+
+.sidebar {
+    flex: 1;
+    overflow-y: auto;
+}
+
+details {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+</style>
+

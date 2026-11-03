@@ -9,9 +9,8 @@ const current = (href: string) => (path === href ? 'page' : path.startsWith(href
 
 <header class="site-header sticky top-0 z-50 h-(--header-h) border-b border-transparent bg-accent">
   <div class="shell flex h-full items-center gap-4">
-    <a href="/" class="flex items-center gap-2.5 rounded-lg text-[1.15rem] font-semibold tracking-[-0.03em]">
+    <a href="/" class="flex items-center gap-2.5 rounded-lg text-[1.15rem] font-semibold tracking-[-0.03em]" aria-label="Til hjemmeside">
       <Logomark />
-      <span class="sr-only">, home</span>
     </a>
 
     <nav aria-label="Main" class="ml-auto hidden md:block">

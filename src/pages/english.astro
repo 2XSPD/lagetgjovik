@@ -9,58 +9,35 @@ import { profileSchema } from '@/lib/schema';
 ---
 
 <BaseLayout
-  title="Om oss"
-  description={`Om ${siteConfig.title}.`}
+  title="About us"
+  description={`About ${siteConfig.title}.`}
   type="profile"
-  structuredData={profileSchema('/om-oss/')}
+  structuredData={profileSchema('/english/')}
 >
   <header class="shell grid gap-12 pt-16 sm:pt-24 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end lg:gap-16">
     <div>
-      <h1 class="rise mt-6 max-w-[18ch] text-headline" style="--rise-step: 1">
-        {about.title} <span class="serif">{about.highlight}</span>
+      <hgroup>
+        <h1 class="rise mt-6 max-w-[18ch] text-headline" style="--rise-step: 1">
+        {about.title}
       </h1>
+      <h2 class="rise mt-6 max-w-[18ch] text-section" style="--rise-step: 1">
+        {about.subtitle}
+      </h2>
+      </hgroup>
+      
       <p class="rise mt-6 max-w-2xl text-lead text-body" style="--rise-step: 2">
         {about.text}
       </p>
       <div class="rise mt-8 flex flex-wrap gap-3" style="--rise-step: 3">
-        <a class="btn btn-primary" href="/resume/">
-          View resume
-          <Icon name="arrow-right" class="icon-nudge size-4" />
+        <a class="btn btn-accent" href="https://nkss.no/english/" target="_blank" rel="noopener noreferrer">
+          Learn more about Laget
         </a>
-        <a class="btn btn-ghost" href={`mailto:${siteConfig.org.email}`}>
-          Email oss
+        <a class="btn btn-primary" href="https://ifesworld.org/en/about/" target="_blank" rel="noopener noreferrer">
+          Learn more about IFES
         </a>
       </div>
     </div>
-    <div class="rise relative" style="--rise-step: 2">
-      <Image
-        src={portrait}
-        alt={about.portraitAlt}
-        widths={[320, 480, 640]}
-        sizes="(min-width: 64rem) 22rem, 90vw"
-        loading="eager"
-        fetchpriority="high"
-        class="aspect-4/5 w-full rounded-card object-cover object-top"
-      />
-      <p class="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full bg-surface/90 px-3.5 py-1.5 text-sm font-medium backdrop-blur">
-        <Icon name="map-pin" class="size-3.5" />
-        {siteConfig.org.location}
-      </p>
-    </div>
   </header>
-
-  <div class="shell mt-20 sm:mt-28">
-    {about.sections.map((section) => (
-      <section class="reveal grid gap-6 border-t border-line py-12 lg:grid-cols-[16rem_minmax(0,1fr)] lg:gap-16">
-        <h2 class="eyebrow self-start">{section.title}</h2>
-        <div class="grid max-w-3xl gap-5 text-lead text-body">
-          {section.paragraphs.map((paragraph) => (
-            <p>{paragraph}</p>
-          ))}
-        </div>
-      </section>
-    ))}
-  </div>
 
   <section class="shell mt-16 sm:mt-24" aria-labelledby="principles-title">
     <h2 id="principles-title" class="reveal text-section">
